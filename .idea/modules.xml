@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/pythonTest.iml" filepath="$PROJECT_DIR$/.idea/pythonTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../simple-neural-network/.idea/simple-neural-network.iml" filepath="$PROJECT_DIR$/../simple-neural-network/.idea/simple-neural-network.iml" />
     </modules>
   </component>
 </project>

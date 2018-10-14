@@ -12,17 +12,19 @@ from matplotlib.ticker import LinearLocator, FormatStrFormatter
 
 
 x = np.linspace(0, 1, 51)
-y = np.linspace(0, 1, 51)
+y = np.linspace(0, 0.6, 31)
 data_x = []
 data_y = []
-hidden = 30
+hidden = 80
 learning_rate = 0.001
-epoch = 200000
+epoch = 10000
 
 for i in x:
     for j in y:
         data_x.append([i])
         data_y.append([j])
+
+print(data_x, data_y)
 
 x_in = tf.constant(data_x)
 y_in = tf.constant(data_y)
@@ -44,9 +46,8 @@ dsigmoidh2 = tf.sigmoid(a) + dsigmoidh - 2 * tf.sigmoid(a) * dsigmoidh
 pd_x2 = (w0x * w0x) * (tf.transpose(w1) * dsigmoidh2)
 pd_y2 = (w0y * w0y) * (tf.transpose(w1) * dsigmoidh2)
 
-loss = tf.reduce_mean((x_in * (1 - x_in) * (y_in * (1 - y_in) * pd_y2 + (2 - 4 * y_in) * pd_y - 2 * net_out) + y_in *
-                       (1 - y_in) * (x_in * (1 - x_in) * pd_x2 + (2 - 4 * x_in) * pd_x - 2 * net_out) - (np.pi ** 2) *
-                       y_in * tf.sin(np.pi * x_in)) ** 2)
+loss = tf.reduce_mean((x_in * (1 - x_in) * (y_in * (0.6 - y_in) * pd_y2 + (2 - 4 * y_in) * pd_y - 2 * net_out) + y_in *
+                       (0.6 - y_in) * (x_in * (1 - x_in) * pd_x2 + (2 - 4 * x_in) * pd_x - 2 * net_out) + 10) ** 2)
 optimizer = tf.train.GradientDescentOptimizer(learning_rate)
 train = optimizer.minimize((loss))
 
@@ -61,38 +62,7 @@ for step in range(1, epoch + 1):
     print(time, 'step:', step, 'loss:', sess.run(loss))
 
 
-phi_t = x_in * (1 - x_in) * y_in * (1 - y_in) * net_out + y_in * tf.sin(np.pi * x_in)
-Z_t = sess.run(phi_t)
-
-'''
-fig_t = plt.figure()
-ax = fig_t.add_subplot(111, projection='3d')
-
-X_t = sess.run(x_in)
-Y_t = sess.run(y_in)
-Z_t = sess.run(phi_t)
-ax.scatter(X_t, Y_t, Z_t, c='g')
-plt.show()
-'''
-sess.close()
-
-#-----------------------------------------------------------------------------------
-
-data_x = []
-data_y = []
-
-for i in x:
-    for j in y:
-        data_x.append([i])
-        data_y.append([j])
-
-x_in = tf.constant(data_x)
-y_in = tf.constant(data_y)
-phi_a = (1 / (tf.exp(np.pi) - tf.exp(-np.pi))) * tf.sin(np.pi * x_in) * (tf.exp(np.pi * y_in) - tf.exp(-np.pi * y_in))
-
-init = tf.global_variables_initializer()
-sess = tf.Session()
-sess.run(init)
+phi = x_in * (1 - x_in) * y_in * (0.6 - y_in) * net_out
 
 
 fig = plt.figure()
@@ -100,8 +70,6 @@ ax = fig.add_subplot(111, projection='3d')
 
 X = sess.run(x_in)
 Y = sess.run(y_in)
-Z = -(sess.run(phi_a) - Z_t)
+Z = sess.run(phi)
 ax.scatter(X, Y, Z, c='g')
 plt.show()
-
-sess.close()
