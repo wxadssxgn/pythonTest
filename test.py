@@ -15,7 +15,7 @@ x = np.linspace(0, 1, 101)
 y = np.linspace(0, 1, 101)
 data_x = []
 data_y = []
-hidden = 1000
+hidden = 45
 learning_rate = 0.1
 epoch = 100
 
