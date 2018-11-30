@@ -9,8 +9,8 @@ from matplotlib import cm
 from matplotlib.ticker import LinearLocator, FormatStrFormatter
 
 
-x = np.linspace(0, 1, 101)
-y = np.linspace(0, 1, 101)
+x = np.linspace(0, 1, 100)
+y = np.linspace(0, 1, 100)
 data_x = []
 data_y = []
 hidden = 45
@@ -61,7 +61,7 @@ time = dt.datetime.now().isoformat()
 print(time, 'step:', step, 'loss:', sess.run(loss))
 temp = sess.run(loss)
 
-while sess.run(loss) > 300000:
+while sess.run(loss):
     
     sess.run(train)
     step = step + 1
@@ -83,7 +83,7 @@ ax = fig_t.add_subplot(111, projection='3d')
 
 X_t = sess.run(x_in)
 Z_t = sess.run(phi_t)
-ax.scatter(X_t, Y_t, Z_t, c='g')
+ax.scatter(X_t, Y_t, Z_t, c='k')
 plt.show()
 
 sess.close()

@@ -16,7 +16,7 @@ y = np.linspace(0, 0.6, 31)
 data_x = []
 data_y = []
 hidden = 80
-learning_rate = 0.001
+learning_rate = 1e-5
 epoch = 10000
 
 for i in x:

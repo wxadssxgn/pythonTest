@@ -9,14 +9,35 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 from matplotlib.ticker import LinearLocator, FormatStrFormatter
-
-
-x = np.linspace(0, 1, 101)
-y = np.linspace(0, 1, 101)
+#                        .::::.
+#                      .::::::::.
+#                     :::::::::::
+#                  ..:::::::::::'
+#               '::::::::::::'
+#                 .::::::::::
+#            '::::::::::::::..
+#                 ..::::::::::::.
+#               ``::::::::::::::::
+#                ::::``:::::::::'        .:::.
+#               ::::'   ':::::'       .::::::::.
+#             .::::'      ::::     .:::::::'::::.
+#            .:::'       :::::  .:::::::::' ':::::.
+#           .::'        :::::.:::::::::'      ':::::.
+#          .::'         ::::::::::::::'         ``::::.
+#      ...:::           ::::::::::::'              ``::.
+#     ```` ':.          ':::::::::'                  ::::..
+#                        '.:::::'                    ':'````..
+#                     美女保佑 永无BUG
+x = np.linspace(0, 1, 40)
+y = np.linspace(0, 1, 40)
+'''
+x = np.random.rand(400, 1)
+y = np.random.rand(400, 1)
+'''
 data_x = []
 data_y = []
-hidden = 45
-learning_rate = 0.1
+hidden = 200
+learning_rate = 1e-6
 epoch = 100
 
 for i in x:
@@ -50,9 +71,9 @@ pd_y2 = (w0y * w0y) * (tf.transpose(w1) * dsigmoidh2)
 tral = tf.abs(x_in * (1 - x_in) * (y_in * (1 - y_in) * pd_y2 + (2 - 4 * y_in) * pd_y - 2 * net_out) + y_in *
                        (1 - y_in) * (x_in * (1 - x_in) * pd_x2 + (2 - 4 * x_in) * pd_x - 2 * net_out) - (np.pi ** 2) *
                        y_in * tf.sin(np.pi * x_in))
-loss = tf.reduce_sum(tral)
+loss = tf.reduce_mean(tral)
 
-optimizer = tf.train.AdamOptimizer(learning_rate)
+optimizer = tf.train.GradientDescentOptimizer(learning_rate)
 train = optimizer.minimize((loss))
 
 init = tf.global_variables_initializer()
@@ -71,7 +92,7 @@ time = dt.datetime.now().isoformat()
 print(time, 'step:', step, 'loss:', sess.run(loss))
 temp = sess.run(loss)
 
-while sess.run(loss) > 300000:
+while sess.run(loss):
     sess.run(train)
     step = step + 1
     time = dt.datetime.now().isoformat()
@@ -92,15 +113,16 @@ ax = fig_t.add_subplot(111, projection='3d')
 
 X_t = sess.run(x_in)
 Z_t = sess.run(phi_t)
-ax.scatter(X_t, Y_t, Z_t, c='g')
+ax.scatter(X_t, Y_t, Z_t, c='k')
 plt.show()
 
 sess.close()
 
 #----------------------------------------------------------------------------------
-
+'''
 data_x = []
 data_y = []
+
 
 for i in x:
     for j in y:
@@ -127,3 +149,4 @@ plt.show()
 
 sess.close()
 print(max(abs(Z)))
+'''
