@@ -28,17 +28,16 @@ from matplotlib.ticker import LinearLocator, FormatStrFormatter
 #     ```` ':.          ':::::::::'                  ::::..
 #                        '.:::::'                    ':'````..
 #                     美女保佑 永无BUG
-x = np.linspace(0, 1, 40)
-y = np.linspace(0, 1, 40)
+x = np.linspace(0, 1, 20)
+y = np.linspace(0, 1, 20)
 '''
 x = np.random.rand(400, 1)
 y = np.random.rand(400, 1)
 '''
 data_x = []
 data_y = []
-hidden = 200
-learning_rate = 1e-6
-epoch = 100
+hidden = 4000
+learning_rate = 1e-3
 
 for i in x:
     for j in y:

@@ -24,7 +24,7 @@ class MLP(nn.Module):
         temp = self.layer4(temp)
         return temp
 
-in_dim, h1, h2, h3, out_dim = 2000, 200, 200, 200, 1
+in_dim, h1, h2, h3, out_dim = 200, 200, 200, 200, 1
 model = MLP(in_dim, h1, h2, h3, out_dim)
 
 N = 2000
@@ -34,7 +34,7 @@ y = Variable(torch.randn(N, out_dim), requires_grad=False)
 criterion = torch.nn.MSELoss(size_average=False)
 optimizer = torch.optim.SGD(model.parameters(), lr=1e-4)
 
-for t in range(500):
+for t in range(1, 5001):
     netout = model(x)
     loss = criterion(netout, y)
     print(t, loss.data[0])
