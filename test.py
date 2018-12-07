@@ -96,7 +96,7 @@ while sess.run(loss):
     step = step + 1
     time = dt.datetime.now().isoformat()
     print(time, 'step:', step, 'loss:', sess.run(loss))
-    if abs(sess.run(loss) - temp) < 0.00000001:
+    if abs(sess.run(loss) - temp) < 5:
         break
     else:
         temp = sess.run(loss)

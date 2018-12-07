@@ -5,9 +5,11 @@
 import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
+'''
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 from matplotlib.ticker import LinearLocator, FormatStrFormatter
+'''
 
 x = np.linspace(0, 1, 51)
 y = np.linspace(0, 1, 51)
