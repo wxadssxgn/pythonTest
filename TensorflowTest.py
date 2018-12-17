@@ -9,12 +9,12 @@ from matplotlib import cm
 from matplotlib.ticker import LinearLocator, FormatStrFormatter
 
 
-x = np.linspace(0, 1, 100)
-y = np.linspace(0, 1, 100)
+x = np.linspace(0, 1, 10)
+y = np.linspace(0, 1, 10)
 data_x = []
 data_y = []
-hidden = 45
-learning_rate = 0.1
+hidden = 450
+learning_rate = 0.001
 epoch = 100
 
 for i in x:

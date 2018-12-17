@@ -37,4 +37,3 @@ def getdata(filepath):
 
 filepath, filelist = getfilename(path)
 filedata = getdata(filepath)
-
