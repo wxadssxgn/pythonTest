@@ -4,8 +4,6 @@
 import os
 import numpy as np
 
-path = "C:/Users/iamtyz/Desktop/data"
-
 
 def getfilename(path):
     filelist = []
@@ -14,7 +12,8 @@ def getfilename(path):
         if filename.endswith('.txt'):
             tempfilename = path + '/' + filename
             filepath.append(tempfilename)
-            filelist.append(filename.split('.')[0])
+            # filelist.append(filename)
+            filelist.append(filename.split('.t')[0])
     return filepath, filelist
 
 
@@ -33,7 +32,3 @@ def getdata(filepath):
         data.append(tempdata)
     data = np.array(data)
     return data
-
-
-filepath, filelist = getfilename(path)
-filedata = getdata(filepath)

@@ -15,7 +15,6 @@ data_x = []
 data_y = []
 hidden = 450
 learning_rate = 0.001
-epoch = 100
 
 for i in x:
     for j in y:
@@ -45,7 +44,7 @@ pd_y2 = (w0y * w0y) * (tf.transpose(w1) * dsigmoidh2)
 tral = tf.abs(x_in * (1 - x_in) * (y_in * (1 - y_in) * pd_y2 + (2 - 4 * y_in) * pd_y - 2 * net_out) + y_in *
                        (1 - y_in) * (x_in * (1 - x_in) * pd_x2 + (2 - 4 * x_in) * pd_x - 2 * net_out) - (np.pi ** 2) *
                        y_in * tf.sin(np.pi * x_in))
-loss = tf.reduce_sum(tral)
+loss = tf.reduce_mean(tral)
 
 optimizer = tf.train.AdamOptimizer(learning_rate)
 train = optimizer.minimize((loss))
@@ -56,21 +55,17 @@ sess = tf.Session()
 sess.run(init)
 
 sess.run(train)
-step = 1
-time = dt.datetime.now().isoformat()
-print(time, 'step:', step, 'loss:', sess.run(loss))
-temp = sess.run(loss)
+step = 0
 
-while sess.run(loss):
-    
+while 1:
     sess.run(train)
     step = step + 1
-    time = dt.datetime.now().isoformat()
-    print(time, 'step:', step, 'loss:', sess.run(loss))
-    if abs(sess.run(loss) - temp) < 0.00000001:
+    if step % 50 == 0:
+        time = dt.datetime.now().isoformat()
+        print(time, 'step:', step, 'loss:', sess.run(loss))
+    if sess.run(loss) < 0.4:
+        print(time, 'step:', step, 'loss:', sess.run(loss))
         break
-    else:
-        temp = sess.run(loss)
 
 
 phi_t = x_in * (1 - x_in) * y_in * (1 - y_in) * net_out + y_in * tf.sin(np.pi * x_in)

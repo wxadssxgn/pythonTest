@@ -51,7 +51,7 @@ step = 0
 while 1:
     step = step + 1
     sess.run(train)
-    if step % 100 == 0:
+    if step % 2000 == 0:
         time = dt.datetime.now().isoformat()
         print(time, 'step:', step, 'loss:', sess.run(loss))
     if sess.run(loss) < 0.1:
