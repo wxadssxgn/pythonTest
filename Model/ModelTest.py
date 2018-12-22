@@ -13,7 +13,7 @@ import NetModel
 
 in_dim, h1, h2, h3, h4, h5, h6, h7, out_dim = 2, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 501
 model = NetModel.MLP(in_dim, h1, h2, h3, h4, h5, h6, h7, out_dim)
-model.load_state_dict(torch.load('para.pt'))
+model.load_state_dict(torch.load('parameters.pt'))
 
 model.eval()
 

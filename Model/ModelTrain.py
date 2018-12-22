@@ -51,4 +51,4 @@ while 1:
     loss.backward()
     optimizer.step()
 
-model.save(model.state_dict(), 'para.pt')
+model.save(model.state_dict(), 'parameters.pt')
