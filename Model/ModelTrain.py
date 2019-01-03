@@ -44,11 +44,13 @@ while 1:
     t = t + 1
     netout = model(x)
     loss = criterion(netout, y)
-    print(time, t, loss.data[0])
+    if t % 1 == 0:
+        print(time, t, loss.data[0])
     if loss.data[0] < 0.001:
+        print(time, t, loss.data[0])
         break
     optimizer.zero_grad()
     loss.backward()
     optimizer.step()
 
-model.save(model.state_dict(), 'parameters.pt')
+torch.save(model.state_dict(), 'parameters.pt')
