@@ -18,7 +18,7 @@ model.load_state_dict(torch.load('parameters.pt'))
 
 model.eval()
 
-testlabel = np.array([2.4, 3.1])
+testlabel = np.array([3.6, 3.9])
 testlabel = torch.from_numpy(testlabel)
 testlabel = testlabel.float()
 testout = model(Variable(testlabel))
