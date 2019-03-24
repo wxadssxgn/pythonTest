@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="995c15b6-f59f-4c64-9672-84b540b8675c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Auxiliary.py" beforeDir="false" afterPath="$PROJECT_DIR$/Auxiliary.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CnnModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/CnnModel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CnnTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/CnnTest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CnnTrain.py" beforeDir="false" afterPath="$PROJECT_DIR$/CnnTrain.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp.py" beforeDir="false" afterPath="$PROJECT_DIR$/tmp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Model/ModelTrain.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Model/ModelTrain.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Model/NetModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Model/NetModel.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,10 +20,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CnnModel.py">
+        <entry file="file://$PROJECT_DIR$/tmp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+            <state relative-caret-position="565">
+              <caret line="151" selection-start-line="151" selection-end-line="151" />
+              <folding>
+                <element signature="e#49#58#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CnnTest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1206">
+              <caret line="67" selection-start-line="67" selection-end-line="67" />
               <folding>
                 <element signature="e#49#61#0" expanded="true" />
               </folding>
@@ -25,22 +44,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CnnTest.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-              <folding>
-                <element signature="e#49#61#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CnnTrain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+            <state relative-caret-position="432">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
               <folding>
                 <element signature="e#49#58#0" expanded="true" />
               </folding>
@@ -51,22 +58,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Auxiliary.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8308">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="-4770">
+              <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
               <folding>
-                <element signature="e#49#58#0" expanded="true" />
+                <element signature="e#48#57#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tmp.py">
+        <entry file="file://$PROJECT_DIR$/CnnModel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="792">
+              <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
               <folding>
-                <element signature="e#49#58#0" expanded="true" />
+                <element signature="e#49#61#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -93,21 +100,24 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/DataImport.py" />
-        <option value="$PROJECT_DIR$/CnnModel.py" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/FileComparison.py" />
-        <option value="$PROJECT_DIR$/Auxiliary.py" />
+        <option value="$PROJECT_DIR$/../Model/NetModel.py" />
+        <option value="$PROJECT_DIR$/../Model/ModelTrain.py" />
+        <option value="$PROJECT_DIR$/../Model/ModelTest.py" />
         <option value="$PROJECT_DIR$/tmp.py" />
-        <option value="$PROJECT_DIR$/CnnTrain.py" />
+        <option value="$PROJECT_DIR$/Auxiliary.py" />
         <option value="$PROJECT_DIR$/CnnTest.py" />
+        <option value="$PROJECT_DIR$/CnnModel.py" />
+        <option value="$PROJECT_DIR$/CnnTrain.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-420" />
-    <option name="y" value="-15" />
+    <option name="x" value="16" />
+    <option name="y" value="7" />
     <option name="width" value="1750" />
-    <option name="height" value="1250" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -120,7 +130,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ToolWindowRun.ShowToolbar" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/CnnModel.py" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.smartKeys" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -146,7 +156,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.CnnTest">
+  <component name="RunManager" selected="Python.tmp">
     <configuration name="CnnTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="CNN" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -239,9 +249,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.tmp" />
         <item itemvalue="Python.CnnTest" />
         <item itemvalue="Python.CnnTrain" />
-        <item itemvalue="Python.tmp" />
         <item itemvalue="Python.FileComparison" />
       </list>
     </recent_temporary>
@@ -269,7 +279,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.17670682" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -287,8 +298,19 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" x="-105" y="438" width="1893" height="301" id="Run" order="3" side_tool="true" weight="0.4174654" />
-      <window_info anchor="right" x="243" y="128" width="1279" height="631" id="Python Console" order="4" side_tool="true" type="FLOATING" weight="0.4339723" />
+      <window_info anchor="right" x="660" y="166" width="1191" height="639" id="Python Console" order="4" side_tool="true" type="FLOATING" weight="0.4339723" />
     </layout>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://D:/CnnTrain.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../../../python/Lib/site-packages/torch/nn/modules/module.py">
@@ -306,10 +328,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CnnModel.py">
+    <entry file="file://$PROJECT_DIR$/../Model/txtRead.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+        <state relative-caret-position="578">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="e#50#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Model/NetModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="e#49#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Model/ModelTrain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="e#49#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Model/ModelTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="31" />
           <folding>
             <element signature="e#49#61#0" expanded="true" />
           </folding>
@@ -318,28 +370,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tmp.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="565">
+          <caret line="151" selection-start-line="151" selection-end-line="151" />
+          <folding>
+            <element signature="e#49#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/CnnTest.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <caret line="17" lean-forward="true" selection-end-line="67" />
           <folding>
-            <element signature="e#49#58#0" expanded="true" />
+            <element signature="e#49#61#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Auxiliary.py">
+    <entry file="file://D:/CnnTrain.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8308">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#49#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CnnTrain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+        <state relative-caret-position="288">
+          <caret line="16" lean-forward="true" selection-end-line="137" />
           <folding>
             <element signature="e#49#58#0" expanded="true" />
           </folding>
@@ -348,10 +400,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CnnTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+        <state relative-caret-position="1206">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
           <folding>
             <element signature="e#49#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/CnnModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="10" lean-forward="true" selection-end-line="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CnnModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
+          <folding>
+            <element signature="e#49#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Auxiliary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4770">
+          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+          <folding>
+            <element signature="e#48#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CnnTrain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="e#49#58#0" expanded="true" />
           </folding>
         </state>
       </provider>

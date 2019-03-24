@@ -11,41 +11,49 @@ import datetime as dt
 import random
 import CnnModel
 import Auxiliary
+import adabound
+
+# dtype = torch.cuda.FloatTensor
+
+dtype = torch.FloatTensor
+
+# model = CnnModel.CNN().cuda()
 
 model = CnnModel.CNN()
 
-model.load_state_dict(torch.load('CnnParameters.pt'))
+# model.load_state_dict(torch.load('CnnParameters.pt'))
 
-# path = '/Users/tyz/Desktop/DataSets'
+path = 'G:/TianYuze/DataSets'
 
-path = 'C:/Users/iamtyz/Desktop/DataSets'
+batch = 50
 
-batch = 15
+# DataSets = list(range(1, 6001))
 
-# DataSets = list(range(1, 101))
-
-DataSets = list(range(20000, 23835))
+DataSets = list(range(1, 7803))
 
 DataSetsOrders = Auxiliary.Shuffle(DataSets, batch)
 
 criterion = nn.MSELoss(reduce=True, size_average=False)
 
-optimizer = torch.optim.Adam(model.parameters())
+# optimizer = adabound.AdaBound(model.parameters(), lr=1e-3, final_lr=1e-5)
 
-epoch = 0
+# optimizer = optim.Adam(model.parameters())
+
+optimizer = optim.SGD(model.parameters(), lr=2e-5, momentum=0.9)
+
+# epoch = 0
 
 loop = 0
 
-# for epoch in range(5000):
+for epoch in range(20000):
 
-while 1:
+    # while 1:
 
     time = dt.datetime.now().isoformat()
 
     order = DataSetsOrders[loop: loop + batch]
 
     if loop == int(len(DataSetsOrders) / batch):
-
         loop = 0
 
     loop += batch
@@ -63,7 +71,6 @@ while 1:
     for j in range(batch):
 
         for i in range(np.size(b[0])):
-
             temp = abs(complex(b[j][i], c[j][i]))
 
             d[j][i] = temp
@@ -80,42 +87,45 @@ while 1:
 
     d = d.view(batch, 49)
 
-    x = Variable(a, requires_grad=False)
+    x = Variable(a.type(dtype), requires_grad=False)
 
-    y = Variable(d, requires_grad=False)
+    y = Variable(d.type(dtype), requires_grad=False)
+
+    # x = Variable(a, requires_grad=False)
+
+    # y = Variable(d, requires_grad=False)
 
     netout = model(x)
 
     loss = criterion(netout, y)
-    
+
     if epoch % 1 == 0:
+        print(time, epoch, loss.data)
 
-        print(time, epoch, loss.data[0])
-
-    if loss.data[0] < 5e-3:
-
-        print(time, epoch, loss.data[0])
+    if loss.data < 1e-2:
+        print(time, epoch, loss.data)
 
         break
 
-    if epoch % 100 == 0:
+    # if epoch % 100 == 0:
 
-        torch.save(model.state_dict(), 'CnnParameters.pt')
+    # torch.save(model.state_dict(), 'CnnParameters.pt')
 
-        model.load_state_dict(torch.load('CnnParameters.pt'))
-    
+    # model.load_state_dict(torch.load('CnnParameters.pt'))
+
     # print(time, epoch, loss.data[0])
-    
+
     optimizer.zero_grad()
 
     loss.backward()
 
     optimizer.step()
 
-    if epoch % 2000 == 0:
-
+    if epoch % 6000 == 0:
         DataSetsOrders = Auxiliary.Shuffle(DataSets, batch)
 
         loop = 0
+
+    del x, y
 
 torch.save(model.state_dict(), 'CnnParameters.pt')

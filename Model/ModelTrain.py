@@ -33,7 +33,7 @@ model = NetModel.MLP(in_dim, h1, h2, h3, h4, h5, h6, h7, out_dim)
 x = Variable(label, requires_grad=False)
 y = Variable(data, requires_grad=False)
 
-criterion = nn.MSELoss(size_average=False)
+criterion = nn.MSELoss(reduce=True, size_average=False)
 # optimizer = optim.SGD(model.parameters(), lr=1e-5)
 optimizer = torch.optim.Adam(model.parameters())
 

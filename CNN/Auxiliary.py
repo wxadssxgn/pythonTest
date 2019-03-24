@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 
 import os
 import numpy as np
@@ -36,6 +36,8 @@ def GetMatrix(path, order):
         matrix[t] = np.array(temp)
 
         t = t + 1
+
+    matrix[matrix < 0.5] = -1
 
     return matrix
 
@@ -461,7 +463,6 @@ def RepeatRemove(path):
 
         sets[i] = np.array(temp)
 
-
     for i in range(0, len(MatrixList)):
 
         for j in range(i + 1, len(MatrixList)):
@@ -509,7 +510,7 @@ def RepeatRemove(path):
         print('clear all repeating items')
 
 
-def rename(path):
+def rename(path, startorder):
 
     PathMatrix = path + '/matrix/'
 
@@ -527,9 +528,9 @@ def rename(path):
 
     for i in range(0, len(namespace)):
 
-        new_m = PathMatrix + str(i + 20000) + '-m.txt'
+        new_m = PathMatrix + str(i + startorder) + '-m.txt'
 
-        new_s = PathS11 + str(i + 20000) + '-s11.txt'
+        new_s = PathS11 + str(i + startorder) + '-s11.txt'
 
         old_m = PathMatrix + namespace[i] + '-m.txt'
 
@@ -539,4 +540,78 @@ def rename(path):
 
         os.rename(old_s, new_s)
 
-        print('rename', namespace[i], 'to', i + 20000)
+        print('rename', namespace[i], 'to', i + startorder)
+
+
+def mGenerate(a):
+
+    while 1:
+
+        tmp = np.zeros([16, 16])
+
+        tmp0 = np.random.rand(8, 8)
+
+        for i in range(0, tmp0.shape[0]):
+
+            for j in range(0, tmp0.shape[1]):
+
+                if tmp0[i][j] > a:
+
+                    tmp0[i][j] = 1
+
+                else:
+
+                    tmp0[i][j] = 0
+
+        tmp[0: 8, 0: 8] = tmp0
+
+        tmp[0: 8, 8: 16] = tmp[0: 8, 7:: -1]
+
+        tmp[8: 16, ] = tmp[7::-1, ]
+
+        count = str(tmp).count('1')
+
+        print(count)
+
+        if count == 32 * 4:
+
+            print(count)
+
+            break
+
+    return tmp
+
+
+def mfGenerate(path, n, a, label):
+
+    path0 = 'G:/TianYuze/DataSets'
+
+    PathMatrix = path + '/matrix/'
+
+    count = 0
+
+    while 1:
+
+        tmp = mGenerate(a)
+
+        pathTemp = PathMatrix + str(label) + '-m.txt'
+
+        np.savetxt(pathTemp, tmp)
+
+        resCmp = MatrixComparison(path0, pathTemp)
+
+        if len(resCmp) > 1:
+
+            os.remove(pathTemp)
+
+        else:
+
+            count += 1
+
+            print('label:', label)
+
+            label += 1
+
+        if count > n - 1:
+
+            break

@@ -11,55 +11,57 @@ import matplotlib.pyplot as plt
 import CnnModel
 import Auxiliary
 
-num = 23109
+# num = 1223
 
-model = CnnModel.CNN()
 
-model.load_state_dict(torch.load('CnnParameters.pt'))
+def t(num):
 
-model.eval()
+    model = CnnModel.CNN()
 
-# path = '/Users/tyz/Desktop/DataSets'
+    model.load_state_dict(torch.load('CnnParameters.pt'))
 
-path = 'C:/Users/iamtyz/Desktop/DataSets'
+    model.eval()
 
-a = Auxiliary.mtest(path, num)
+    path = 'G:/TianYuze/DataSets'
 
-a = torch.from_numpy(a)
+    # path = 'C:/Users/Antlab/Desktop/ppp'
 
-a = a.view(1, 1, 16, 16)
+    a = Auxiliary.mtest(path, num)
 
-a = a.float()
+    a = torch.from_numpy(a)
 
-b = model(Variable(a))
+    a = a.view(1, 1, 16, 16)
 
-b = b.data
+    a = a.float()
 
-b = b.view(49, 1)
+    b = model(Variable(a))
 
-b = b.numpy()
+    b = b.data
 
-b = 20 * np.log10(b)
+    b = b.view(49, 1)
 
-# print(b)
+    b = b.numpy()
 
-fig = plt.figure(dpi=64, figsize=(16, 9))
+    b = 20 * np.log10(b)
 
-plt.xlabel('GHz', fontsize=32)
+    # print(b)
 
-plt.ylabel("dB", fontsize=32)
+    fig = plt.figure(dpi=64, figsize=(16, 9))
 
-plt.tick_params(axis='both', which='major', labelsize=18)
+    plt.xlabel('GHz', fontsize=32)
 
-plt.ylim(-26, 1)
+    plt.ylabel("dB", fontsize=32)
 
-plt.xlim(8, 13)
+    plt.tick_params(axis='both', which='major', labelsize=18)
 
-x = np.linspace(8, 13, 49)
+    plt.ylim(-26, 1)
 
-plt.plot(x, b, color='red', linewidth=3)
+    plt.xlim(8, 13)
 
-c = Auxiliary.shows11(path, num)
+    x = np.linspace(8, 13, 49)
 
-plt.show()
+    plt.plot(x, b, color='red', linewidth=3)
 
+    c = Auxiliary.shows11(path, num)
+
+    plt.show()
