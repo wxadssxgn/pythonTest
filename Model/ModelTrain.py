@@ -11,7 +11,10 @@ import datetime as dt
 import txtRead
 import NetModel
 
-path = "C:/Users/iamtyz/Desktop/data"
+dtype = torch.cuda.FloatTensor
+# dtype = torch.FloatTensor
+
+path = "C:/Users/wxadssxgn/Desktop/aaa"
 
 filepath, filelist = txtRead.getfilename(path)
 filedata = txtRead.getdata(filepath)
@@ -28,10 +31,13 @@ label = torch.from_numpy(filelabel)
 label = label.float()
 
 in_dim, h1, h2, h3, h4, h5, h6, h7, out_dim = 2, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 501
-model = NetModel.MLP(in_dim, h1, h2, h3, h4, h5, h6, h7, out_dim)
 
-x = Variable(label, requires_grad=False)
-y = Variable(data, requires_grad=False)
+model = NetModel.MLP(in_dim, h1, h2, h3, h4, h5, h6, h7, out_dim).cuda()
+
+model.load_state_dict(torch.load('parameters.pt'))
+
+x = Variable(label.type(dtype), requires_grad=False)
+y = Variable(data.type(dtype), requires_grad=False)
 
 criterion = nn.MSELoss(reduce=True, size_average=False)
 # optimizer = optim.SGD(model.parameters(), lr=1e-5)
@@ -45,9 +51,9 @@ while 1:
     netout = model(x)
     loss = criterion(netout, y)
     if t % 1 == 0:
-        print(time, t, loss.data[0])
-    if loss.data[0] < 0.001:
-        print(time, t, loss.data[0])
+        print(time, t, loss.data)
+    if loss.data < 0.0001:
+        print(time, t, loss.data)
         break
     optimizer.zero_grad()
     loss.backward()
